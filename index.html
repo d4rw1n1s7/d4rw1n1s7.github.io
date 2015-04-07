@@ -9,3 +9,55 @@
 		<p>My e-mail: <a href='mailto:d4rw1n1s7@gmail.com'>d4rw1n1s7@gmail.com</a></p>
     </body>
 </html>
+
+
+<!--
+
+test sync
+// ==UserScript==
+// @name         My Fancy New Userscript
+// @namespace    http://your.homepage/
+// @version      0.1
+// @description  enter something useful
+// @author       You
+// @grant GM_setValue
+// @grant GM_getValue
+// @grant GM_setClipboard
+// @require http://code.jquery.com/jquery-latest.js
+// ==/UserScript==
+$('body').append('<input type="button" id="mycustomsuperduper_setButton" value="store" />');
+$('#mycustomsuperduper_setButton').click(function(){
+    GM_setValue('mycustomsuperduper_name', (new Date()).getTime().toString());
+});
+$('body').append('<input type="button" id="mycustomsuperduper_getButton" value="read" />');
+$('#mycustomsuperduper_getButton').click(function(){
+    alert(GM_getValue('mycustomsuperduper_name', 'no data'));
+});
+
+
+
+templater
+// ==UserScript==
+// @name         templater
+// @namespace    http://d4rw1n1s7.github.io/
+// @version      0.1
+// @description  insert template by Tab key press at the end of corresponding abbreviation
+// @author       George Melnik aka d4rw1n1s7
+// @grant        none
+// ==/UserScript==
+
+$('body').append('<div id="testdiv"></div>');
+$('#testdiv')
+    .css('width', '300px')
+    .css('height', '50px')
+    .css('position', 'fixed')
+    .css('top', '0')
+    .css('left', '0')
+    .css('z-index', '1000000')
+    .css('background-color', '#ffffff');
+$('html').keypress(function(e) {
+    var str = $('#testdiv').text();
+    $('#testdiv').html(str + String.fromCharCode(e.which));
+});
+
+-->
